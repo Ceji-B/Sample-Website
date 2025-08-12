@@ -121,6 +121,8 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     padding: 20px 0;
     transition: var(--transition);
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .header:hover {
@@ -131,10 +133,13 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 300px;
+    padding: 0 40px;
     width: 100%;
+    box-sizing: border-box;
+    min-height: 70px;
+    overflow: visible;
 }
 
 .logo {
@@ -206,7 +211,8 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1;
     display: flex;
     justify-content: center;
-    margin: 0 60px;
+    margin: 0 30px;
+    overflow: visible;
 }
 
 .nav-menu {
@@ -215,6 +221,8 @@ h1, h2, h3, h4, h5, h6 {
     gap: 40px;
     margin: 0;
     padding: 0;
+    overflow: visible;
+    white-space: nowrap;
 }
 
 .nav-menu li a {
@@ -250,6 +258,25 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu li a:hover::before {
     width: 80%;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background: var(--charcoal);
+    border-radius: 2px;
+    transition: var(--transition);
 }
 
 .header-tagline {
@@ -1238,7 +1265,7 @@ h1, h2, h3, h4, h5, h6 {
     
     /* Adjust header for tablets */
     .header-content {
-        padding: 0 240px !important;
+        padding: 0 30px !important;
     }
     
     .navigation {
@@ -1302,7 +1329,7 @@ h1, h2, h3, h4, h5, h6 {
         display: flex !important;
         flex-direction: column !important;
         gap: 15px !important;
-        padding: 0 180px !important;
+        padding: 0 20px !important;
         text-align: center;
     }
     
@@ -1331,6 +1358,10 @@ h1, h2, h3, h4, h5, h6 {
         gap: 20px !important;
         flex-wrap: wrap !important;
         justify-content: center !important;
+    }
+    
+    .mobile-menu-toggle {
+        display: none !important;
     }
     
     .nav-menu li a {
