@@ -569,7 +569,7 @@
                             
                             <div class="form-group">
                                 <select id="service" name="service" required>
-                                    <option value="">Select a Service</option>
+                                    <option value="" disabled selected hidden></option>
                                     <option value="design">Course Design</option>
                                     <option value="construction">Construction</option>
                                     <option value="renovation">Renovation</option>
@@ -716,6 +716,40 @@
                     this.setAttribute('aria-expanded', !isExpanded);
                     navMenu.classList.toggle('active');
                 });
+            }
+            
+            // Handle select dropdown label animation
+            const selectElement = document.getElementById('service');
+            const selectLabel = document.querySelector('label[for="service"]');
+            
+            if (selectElement && selectLabel) {
+                // Function to update label position
+                function updateLabel() {
+                    if (selectElement.value !== '') {
+                        selectLabel.style.top = '-5px';
+                        selectLabel.style.fontSize = '0.8rem';
+                        selectLabel.style.color = 'var(--primary-green)';
+                    } else {
+                        selectLabel.style.top = '15px';
+                        selectLabel.style.fontSize = '1rem';
+                        selectLabel.style.color = 'var(--dark-gray)';
+                    }
+                }
+                
+                // Update on change
+                selectElement.addEventListener('change', updateLabel);
+                
+                // Update on focus/blur
+                selectElement.addEventListener('focus', function() {
+                    selectLabel.style.top = '-5px';
+                    selectLabel.style.fontSize = '0.8rem';
+                    selectLabel.style.color = 'var(--primary-green)';
+                });
+                
+                selectElement.addEventListener('blur', updateLabel);
+                
+                // Initial check
+                updateLabel();
             }
         });
     </script>

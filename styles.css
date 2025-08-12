@@ -1059,7 +1059,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-group input:focus ~ label,
 .form-group input:valid ~ label,
 .form-group select:focus ~ label,
-.form-group select:valid ~ label,
+.form-group select:not([value=""]):valid ~ label,
 .form-group textarea:focus ~ label,
 .form-group textarea:valid ~ label {
     top: -5px;
@@ -1069,10 +1069,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-group select {
     cursor: pointer;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23666" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px;
+}
+
+.form-group select:focus {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%232E5F3E" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
 }
 
 .form-group select option {
     color: var(--black);
+    padding: 10px;
 }
 
 /* Footer */
@@ -1088,8 +1099,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 50px;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+    gap: 30px;
     margin-bottom: 50px;
 }
 
@@ -1243,8 +1254,8 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .footer-content {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 30px;
     }
     
     /* Reduce golf background width on tablets */
