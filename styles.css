@@ -1007,6 +1007,16 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.6;
 }
 
+.contact-details a {
+    color: var(--primary-green);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-details a:hover {
+    color: var(--gold);
+}
+
 /* Contact Form */
 .contact-form {
     background: var(--white);
@@ -1183,6 +1193,16 @@ h1, h2, h3, h4, h5, h6 {
 .footer-contact i {
     color: var(--gold);
     width: 20px;
+}
+
+.footer-contact a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-contact a:hover {
+    color: var(--gold);
 }
 
 .footer-bottom {
