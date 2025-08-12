@@ -1,0 +1,337 @@
+/**
+ * Main Styles for GolfDraft Website
+ * Contains base styles, variables, and non-header components
+ */
+
+/* CSS Variables for consistent theming */
+:root {
+    --primary-green: #2E5F3E;
+    --accent-green: #4A7C5A;
+    --light-green: #6B8E6B;
+    --forest-green: #1A4D2E;
+    --light-brown: #D2B48C;
+    --brown: #A0844B;
+    --dark-brown: #8B7355;
+    --white: #FFFFFF;
+    --off-white: #FEFEFE;
+    --black: #1C1C1C;
+    --charcoal: #2C2C2C;
+    --light-gray: #F5F5F5;
+    --medium-gray: #E8E8E8;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--black);
+    background-color: var(--off-white);
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Main content positioning to account for header */
+#main-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ENHANCED GOLF COURSE BACKGROUND IMAGES */
+.golf-bg-left,
+.golf-bg-right {
+    position: fixed;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-image: url('../golfimage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 0.7;
+    pointer-events: none;
+    filter: contrast(1.1) brightness(1.05) saturate(1.1);
+}
+
+.golf-bg-left {
+    left: 0;
+    background-position: center left;
+}
+
+.golf-bg-right {
+    right: 0;
+    background-position: center right;
+}
+
+/* Special container styling for sections to avoid golf image overlap */
+.hero .container,
+.about-section .container,
+.services-section .container,
+.stats-section .container,
+.projects-section .container,
+.contact-section .container {
+    max-width: 100%;
+    margin: 0;
+    padding: 20px 40px;
+}
+
+/* Enhanced background for main content areas */
+.hero,
+.about-section,
+.services-section,
+.stats-section,
+.projects-section,
+.contact-section {
+    position: relative;
+    z-index: 5;
+    margin: 20px 280px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus styles for better accessibility */
+:focus {
+    outline: 2px solid var(--primary-green);
+    outline-offset: 2px;
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.btn--primary {
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+    color: var(--white);
+}
+
+.btn--primary:hover,
+.btn--primary:focus {
+    background: linear-gradient(135deg, var(--forest-green), var(--primary-green));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn--secondary {
+    background: var(--light-brown);
+    color: var(--black);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus {
+    background: var(--brown);
+    color: var(--white);
+}
+
+/* Card Component */
+.card {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+.card__header {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.card__title {
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+}
+
+.card__content {
+    color: var(--charcoal);
+    line-height: 1.6;
+}
+
+/* Grid System */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+@media screen and (max-width: 768px) {
+    .grid--2,
+    .grid--3,
+    .grid--4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .golf-bg-left,
+    .golf-bg-right {
+        width: 200px;
+    }
+    
+    .hero,
+    .about-section,
+    .services-section,
+    .stats-section,
+    .projects-section,
+    .contact-section {
+        margin: 20px 230px;
+    }
+}
+
+@media screen and (max-width: 968px) {
+    .golf-bg-left,
+    .golf-bg-right {
+        width: 150px;
+        opacity: 0.6;
+    }
+    
+    .hero,
+    .about-section,
+    .services-section,
+    .stats-section,
+    .projects-section,
+    .contact-section {
+        margin: 20px 170px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Keep golf backgrounds visible on mobile with reduced width */
+    .golf-bg-left,
+    .golf-bg-right {
+        width: 120px !important;
+        opacity: 0.4 !important;
+    }
+    
+    /* Adjust section margins for mobile */
+    .hero,
+    .about-section,
+    .services-section,
+    .stats-section,
+    .projects-section,
+    .contact-section {
+        margin: 20px 140px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .golf-bg-left,
+    .golf-bg-right {
+        display: none;
+    }
+    
+    .hero,
+    .about-section,
+    .services-section,
+    .stats-section,
+    .projects-section,
+    .contact-section {
+        margin: 20px 10px !important;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .golf-bg-left,
+    .golf-bg-right {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .hero,
+    .about-section,
+    .services-section,
+    .projects-section,
+    .contact-section {
+        margin: 0;
+        box-shadow: none;
+        background: white;
+    }
+}
