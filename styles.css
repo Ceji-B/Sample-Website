@@ -1097,6 +1097,10 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 5;
 }
 
+.footer-container {
+    padding: 0 60px;
+}
+
 .footer-content {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
@@ -1312,6 +1316,10 @@ h1, h2, h3, h4, h5, h6 {
         margin: 20px 220px 0 !important;
     }
     
+    .footer-container {
+        padding: 0 40px !important;
+    }
+    
     /* Adjust stats section for tablets */
     .stats-section {
         margin: 20px 220px !important;
@@ -1456,6 +1464,10 @@ h1, h2, h3, h4, h5, h6 {
     /* Adjust footer for mobile */
     .footer {
         margin: 20px 170px 0 !important;
+    }
+    
+    .footer-container {
+        padding: 0 30px !important;
     }
     
     /* Adjust stats section for mobile */
@@ -1650,6 +1662,10 @@ h1, h2, h3, h4, h5, h6 {
     .footer {
         margin: 15px 100px 0 !important;
         padding: 40px 0 20px !important;
+    }
+    
+    .footer-container {
+        padding: 0 20px !important;
     }
     
     /* Adjust stats section for very small screens */
